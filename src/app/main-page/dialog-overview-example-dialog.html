@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Preview</h2>
+<!--<img *ngIf="qrCodeUrl"  [src]="qrCodeUrl" alt="QR Code">-->
+<mat-dialog-content>
+  <!--  <p>What's your favorite imageUrl?</p>-->
+  <img id="myimage" [src]='imageUrl' />
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.imageUrl" (click)="downloadImage()" cdkFocusInitial>Downlaod<mat-icon>download</mat-icon></button>
+</mat-dialog-actions>
