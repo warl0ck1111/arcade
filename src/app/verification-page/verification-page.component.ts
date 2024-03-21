@@ -42,7 +42,7 @@ this.verifyCertificate(this.rcNumber as string);
   verifyCertificate(rcNumber: string) {
     this.loading = true;
 
-    this.http.get(`http://localhost:8080/verify/${rcNumber}`).pipe(finalize(() => {
+    this.http.get(`http://23.22.108.122:8080/verify/${rcNumber}`).pipe(finalize(() => {
       this.loading = false;
     }))
       .subscribe((result: any) => {

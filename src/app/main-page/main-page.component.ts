@@ -58,7 +58,7 @@ export class MainPageComponent {
   displayedColumns: string[] = ['id', 'name', 'rcNumber', 'action'];
   dataSource: Company[] = [];
 
-  USER_COMPANY_URL: string = `http://localhost:8080/barcodes/user`;
+  USER_COMPANY_URL: string = `http://23.22.108.122:8080/barcodes/user`;
 
   imageUrl!: string;
   name!: string;
@@ -124,7 +124,7 @@ export class DialogOverviewExampleDialog implements OnInit {
 
   getQrCode() {
     // Replace 'backend-image-url' with the actual URL of your backend API that returns the image
-    return this.http.get(`http://localhost:8080/barcodes/downloadQR/${this.data.imageUrl}`, {responseType: 'blob'}).subscribe((response: Blob) => {
+    return this.http.get(`http://23.22.108.122:8080/barcodes/downloadQR/${this.data.imageUrl}`, {responseType: 'blob'}).subscribe((response: Blob) => {
       this.imageBlob = response;
       // Convert the Blob response to a URL
       const reader = new FileReader();
