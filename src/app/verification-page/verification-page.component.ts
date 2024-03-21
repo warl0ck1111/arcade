@@ -7,7 +7,8 @@ import {NgIf} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {MatTable} from "@angular/material/table";
-import {Company} from "../main-page/main-page.component";
+import {Company, ELEMENT_DATA} from "../main-page/main-page.component";
+import {LogicalFileSystem} from "@angular/compiler-cli";
 
 @Component({
   selector: 'app-verification-page',
@@ -30,23 +31,27 @@ export class VerificationPageComponent {
 
   company!:Company;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {
+  constructor(private route: ActivatedRoute) {
     this.loading = false;
     this.success = true;
 
     this.rcNumber = this.route.snapshot.paramMap.get('rcNumber');
 this.verifyCertificate(this.rcNumber as string);
+
+
   }
 
 
-  verifyCertificate(rcNumber: string) {
-    this.loading = true;
 
-    this.http.get(`http://23.22.108.122:8080/verify/${rcNumber}`).pipe(finalize(() => {
-      this.loading = false;
-    }))
-      .subscribe((result: any) => {
-        this.company = result;
-      })
+
+  verifyCertificate(rcNumber: string) {
+      console.log("verifyCertificate/rcNumber"+rcNumber)
+    ELEMENT_DATA.forEach(company=>{
+      if (company.rcNumber.trim() == rcNumber.trim()){
+          console.log("match found")
+        this.company = company;
+          console.log(company)
+      }
+    })
   }
 }
