@@ -1,0 +1,48 @@
+<!-- arcade-verification.component.html -->
+<p>
+  <mat-toolbar>
+    <span>QR CODE DEMO APP</span>
+  </mat-toolbar>
+</p>
+
+
+
+
+
+<div class="verification-container">
+
+  <!--  <h2>Verify Certificate</h2>-->
+  <div *ngIf="loading" class="loading-message">Verifying...</div>
+  <div *ngIf="success" class="success-message">
+    <i class="fas fa-check-circle"></i>
+    <span>Certificate Verified Successfully!</span>
+  </div>
+  <div *ngIf="!success" class="error-message">
+    <i class="fas fa-exclamation-circle"></i>
+    <span>Failed to Verify Certificate.</span>
+  </div>
+
+  <table>
+    <tr>
+      <th>Certificate Number:</th>
+      <td>{{this.company.id || 'N/A'}}</td>
+    </tr>
+
+    <tr>
+      <th>RC Number:</th>
+      <td>{{this.company.rcNumber || 'N/A'}}</td>
+    </tr>
+
+    <tr>
+      <th>Company Name:</th>
+      <td>{{this.company.name || 'N/A'}}</td>
+    </tr>
+
+
+  </table>
+
+
+</div>
+
+
+
