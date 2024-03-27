@@ -143,7 +143,7 @@ export class DialogOverviewExampleDialog implements OnInit {
 
 
   ngOnInit(): void {
-    this.imageUrl = `http://23.22.108.122:3001/verify/${this.data.imageUrl}`
+    this.imageUrl = `http://3.80.92.194:3001/verify/${this.data.imageUrl}`
     console.log("DialogOverviewExampleDialog/ngOnInit/" + this.data.imageUrl);
   }
 
